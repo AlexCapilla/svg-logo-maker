@@ -1,6 +1,6 @@
-const SVG = require("./lib/svg");
+const SVG = require("../lib/svg");
 
-const { Square } = require("./lib/shapes.js");
+const { Square } = require("../lib/shapes");
 const exp = require("constants");
 
 
@@ -9,7 +9,7 @@ describe("SVG", () => {
         const expectedSVG = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"></svg>`;
         const svg = new SVG();
         const actualSVG = svg.render();
-        expect(actualSVG.render()).toEqual(expectedSVG);
+        expect(actualSVG).toEqual(expectedSVG);
       });
       
       
@@ -32,7 +32,7 @@ describe("SVG", () => {
         const svg = new SVG();
         const actualResult = () => svg.setText("HELLO", "pink")
         
-        expect(actualResult).toThrow(expectedSVG);
+        expect(actualResult).toThrow(expectedError);
     });
 
     test("should include a shape", () => {
